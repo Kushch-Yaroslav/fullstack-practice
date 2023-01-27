@@ -11,7 +11,18 @@ module.exports.createChat = async (req, res, next) => {
     }
 }
 
-module.exports.addUserToChat = async (req, res, next) => {}
+module.exports.addUserToChat = async (req, res, next) => {
+    try {
+        const {body: {userId}, params: {chatId}} = req;
+        const chatInstance = await Chat.findById(chatId);
+        console.log(chatInstance);
+        chatInstance.members.push(userId);
+        chatInstance.save();
+        res.status(200).send(chatInstance);
+    } catch(error) {
+        next(error);
+    }
+}
 
 module.exports.addNewMessage = async (req, res, next) => {
     try {
