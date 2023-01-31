@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 
 const SECRET_VALUE = 'super-secret';
 
-const ACCESS_TIME = 60*60;
+const ACCESS_TIME = 60;
 
 const promisifySignJWT = promisify(jwt.sign);
 const promisifyVerifyJWT = promisify(jwt.verify);
