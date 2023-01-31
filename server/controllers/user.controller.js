@@ -82,19 +82,20 @@ module.exports.getOneUser = async (req, res, next) => {
 
 module.exports.refreshSession = async (req, res, next) => {
     const {body, body: {refreshToken}} = req;
-    let verifyResult;
+    let verifyPayload;
         try {
-            verifyResult = await verifyRefreshToken(refreshToken); /// throw errors
+            verifyPayload = await verifyRefreshToken(refreshToken); /// throw errors
         } catch (error) {
             next(new TokenError('Invalid refresh token'));
         }
 
 
     try {
-        if(verifyResult) {
+        if(verifyPayload) {
             const foundUser = await User.findOne({
-                email: verifyRefreshToken.email
+                email: verifyPayload.email
             });
+            console.log(foundUser);
             const rtFromDB = await RefreshToken.findOne({ $and: [{
                 token: refreshToken,
             }, {
