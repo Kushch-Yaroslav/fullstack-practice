@@ -5,7 +5,7 @@ const ACCESS_SECRET_VALUE = 'super-secret';
 
 const REFRESH_SECRET_VALUE = 'refresh-super-secret';
 
-const ACCESS_TIME = 60;
+const ACCESS_TIME = 60*60;
 const REFRESH_TIME = 60*60;
 
 const promisifySignJWT = promisify(jwt.sign);
