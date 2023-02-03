@@ -6,15 +6,6 @@ import styles from './Home.module.css';
 
 const Home = (props) => {
     const [view, setView] = useState(true);
-    const navigate = useNavigate();
-
-    const sendApiRequest = (responce) => {
-        responce.then(({data}) => {
-            console.log(data);
-            props.sendData(data);
-            navigate('/messenger');
-        });
-    }
 
     const buttonText = view ? "SignUp" : "SignIn";
 
@@ -24,8 +15,7 @@ const Home = (props) => {
         <div className={styles.cover}>
             <button onClick={clickHandler}>{buttonText}</button>
             <section className={styles['form-wrapper']} >
-            {view ? <SignIn apiRequest={sendApiRequest} /> : <SignUp 
-                        apiRequest={sendApiRequest} />}
+            {view ? <SignIn /> : <SignUp />}
             </section>
         </div>
     );
