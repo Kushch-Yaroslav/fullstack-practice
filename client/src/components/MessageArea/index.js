@@ -8,7 +8,8 @@ const MessageArea = (props) => {
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        props.sendMessage({body: message, chatId: props.currentChat})
+        console.log('send');
+        props.sendMessage({body: message, chatId: props.currentChat._id})
     }  
 
     const changeHandler = ({target: {value}}) => {

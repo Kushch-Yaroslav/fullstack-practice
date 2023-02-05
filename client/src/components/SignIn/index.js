@@ -24,7 +24,7 @@ const SignIn = (props) => {
                 <Form>
                     <Field name="email" placeholder="Type your email"/>
                     <Field name="password" placeholder="Type your pass"/>
-                    {props.error && <div>{error}</div>}
+                    {props.error && <div>{props.error}</div>}
                     <button type="submit">Send!</button>
                 </Form>
             )}

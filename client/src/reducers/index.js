@@ -17,7 +17,10 @@ function reducer(state = initialState, action) {
             const {data} = action;
             return {
                 ...state,
-                chatList: [...state.chatList, data]
+                currentChat: {
+                    ...state.currentChat,
+                    messages: [...state.currentChat.messages, data]
+                }
             }
         }
 
@@ -26,6 +29,15 @@ function reducer(state = initialState, action) {
             return {
                 ...state,
                 chatList: data
+            }
+        }
+
+        case ACTION_TYPES.GET_CHAT_WITH_MESSAGES_SUCCESS: {
+            const {data} = action;
+            console.log(action);
+            return {
+                ...state,
+                currentChat: data
             }
         }
        
@@ -37,7 +49,7 @@ function reducer(state = initialState, action) {
                 user: data
             }
         }
-
+        case ACTION_TYPES.GET_CHAT_WITH_MESSAGES_ERROR:
         case ACTION_TYPES.GET_USER_CHATS_ERROR:
         case ACTION_TYPES.LOGIN_USER_ERROR: 
         case ACTION_TYPES.REGISTER_USER_ERROR:
