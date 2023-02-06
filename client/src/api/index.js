@@ -16,6 +16,8 @@ export const logOut = async () => {
     localStorage.clear();
 }  
 
+export const getUserData = async () => await httpClient.get('/users/');
+
 
 export const refreshSession = async () => {
     const refreshToken = localStorage.getItem('refreshToken');

@@ -40,7 +40,7 @@ function reducer(state = initialState, action) {
                 currentChat: data
             }
         }
-       
+        case ACTION_TYPES.GET_USER_DATA_SUCCESS:
         case ACTION_TYPES.REGISTER_USER_SUCCESS: 
         case ACTION_TYPES.LOGIN_USER_SUCCESS: {
             const {data} = action;

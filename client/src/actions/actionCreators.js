@@ -34,6 +34,23 @@ export const registerUserError = (error) => ({
 });
 
 
+/////////
+
+export const getUserDataAction = () => ({
+    type: ACTION_TYPES.GET_USER_DATA_REQUEST
+})
+
+export const getUserDataSuccess = (data) => ({
+    type: ACTION_TYPES.GET_USER_DATA_SUCCESS,
+    data
+})
+
+export const getUserDataError = (error) => ({
+    type: ACTION_TYPES.GET_USER_DATA_ERROR,
+    error
+})
+
+
 /* Chat actionCreators */
 
 
