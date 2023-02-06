@@ -25,7 +25,9 @@ const DialogList = (props) => {
     })
     return <li key={chat._id} 
             className={cn}
-            onClick={() => {changeCurrentChat(chat._id)}}>{chat.name}</li>
+            onClick={() => {changeCurrentChat(chat._id)}}>
+                {chat.name}
+                </li>
     }
 
     return (

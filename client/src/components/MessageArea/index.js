@@ -9,7 +9,9 @@ const MessageArea = (props) => {
     const onSubmitHandler = (event) => {
         event.preventDefault();
         console.log('send');
-        props.sendMessage({body: message, chatId: props.currentChat._id})
+        if(message) {
+            props.sendMessage({body: message, chatId: props.currentChat._id})
+        }
     }  
 
     const changeHandler = ({target: {value}}) => {
@@ -18,9 +20,14 @@ const MessageArea = (props) => {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={onSubmitHandler}>
-                <textarea name="message" value={message} onChange={changeHandler}/>
-                <button>Send</button>
+            <form onSubmit={onSubmitHandler}
+                    className={styles.form}>
+                <textarea 
+                name="message" 
+                value={message} 
+                onChange={changeHandler}
+                className={styles.text}/>
+                <button className={styles['send-btn']}>&#10148;</button>
             </form>
         </div>
     );

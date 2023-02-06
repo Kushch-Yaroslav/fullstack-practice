@@ -10,12 +10,15 @@ const Chat = (props) => {
     const cn = cx(styles.message, {
         [styles['user-message']]: msg.author === user._id
     })
-    return <li key={msg._id} className={cn}>{msg.body}</li>
+    return <li key={msg._id} className={cn}>
+        <span className={styles['message-author']}>{msg.author}</span>
+        <span className={styles['message-body']}>{msg.body}</span>
+        </li>
    }
 
     return (
-        <div className={styles.chat}>
-            <ul>
+        <div className={styles['chat-wrapper']}>
+            <ul className={styles.chat}>
             {currentChat && currentChat.messages.map(messageMap)}
             </ul>
         </div>
